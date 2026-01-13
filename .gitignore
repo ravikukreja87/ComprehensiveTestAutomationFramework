@@ -1,0 +1,25 @@
+# Maven
+target/
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Test Results & Logs
+allure-results/
+allure-report/
+logs/
+test-output/
+*.log
+
+# System
+.DS_Store
+Thumbs.db
