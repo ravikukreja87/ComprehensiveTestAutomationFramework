@@ -8,13 +8,12 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ui.web.taf.pages.YahooSearchPage;
+import ui.web.taf.utils.ui.WaitUtils;
 
 import java.time.Duration;
 
@@ -29,7 +28,7 @@ public class YahooSearchTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         // Implicitly wait for elements to be found
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        WaitUtils.setImplicitWait(driver, 10);
         yahooSearchPage = new YahooSearchPage(driver);
     }
 
@@ -43,9 +42,8 @@ public class YahooSearchTest {
         
         yahooSearchPage.searchFor("Selenium WebDriver");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         // Wait for the new tab to open
-        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+        WaitUtils.waitForNumberOfWindowsToBe(driver, 2, 10);
 
         // Switch to the new tab
         for (String windowHandle : driver.getWindowHandles()) {
@@ -56,7 +54,7 @@ public class YahooSearchTest {
         }
 
         // Explicitly wait for the title to contain the search term in the new tab
-        wait.until(ExpectedConditions.titleContains("Selenium WebDriver"));
+        WaitUtils.waitForTitleToContain(driver, "Selenium WebDriver", 10);
         
         String title = yahooSearchPage.getTitle();
         Assert.assertTrue(title.contains("Selenium WebDriver"), "Title should contain the search term");

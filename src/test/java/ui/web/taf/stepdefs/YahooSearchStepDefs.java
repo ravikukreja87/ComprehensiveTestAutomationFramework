@@ -10,10 +10,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import ui.web.taf.pages.YahooSearchPage;
-import ui.web.taf.utils.ConfigUtils;
-import ui.web.taf.utils.LoggingUtils;
-import ui.web.taf.utils.ScreenshotUtils;
-import ui.web.taf.utils.WaitUtils;
+import ui.web.taf.utils.core.ConfigUtils;
+import ui.web.taf.utils.core.LoggingUtils;
+import ui.web.taf.utils.ui.ScreenshotUtils;
+import ui.web.taf.utils.ui.WaitUtils;
 
 public class YahooSearchStepDefs {
     private WebDriver driver;

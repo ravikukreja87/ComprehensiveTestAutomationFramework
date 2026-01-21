@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import ui.web.taf.utils.ConfigUtils;
-import ui.web.taf.utils.LoggingUtils;
-import ui.web.taf.utils.ScreenshotUtils;
-import ui.web.taf.utils.WaitUtils;
+import ui.web.taf.utils.core.ConfigUtils;
+import ui.web.taf.utils.core.LoggingUtils;
+import ui.web.taf.utils.ui.ScreenshotUtils;
+import ui.web.taf.utils.ui.WaitUtils;
 
 public class YahooSearchPage {
     private WebDriver driver;
